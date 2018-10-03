@@ -19,7 +19,9 @@ const authCheck=(req,res,next)=>{
 router.get('/',authCheck, (req, res)=> {
   //res.render('profile');
  // res.send('Logged In with Profile '+req.user.username);
- res.render('profile');
+
+// var name=req.user.username;
+ res.render('profile',{user:req.user});
 });
 
 /* GET users listing. */

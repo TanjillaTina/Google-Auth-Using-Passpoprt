@@ -5,7 +5,8 @@ const Schema=mongoose.Schema;
 
 let userSchema=new Schema({
     username:String,
-     googleId: String 
+     googleId: String,
+     //profileImgLink:String
 });
 
 const User=mongoose.model('user',userSchema);
