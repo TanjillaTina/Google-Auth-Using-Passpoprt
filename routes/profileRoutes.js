@@ -10,12 +10,13 @@ const authCheck=(req,res,next)=>{
 
    }
    else{
-    res.send('Logged In with Profile '+req.user.username);
+     //if logged in
+    next();
    }
 };
 
 
-router.get('/', (req, res)=> {
+router.get('/',authCheck, (req, res)=> {
   //res.render('profile');
   res.send('Logged In with Profile '+req.user.username);
 });
