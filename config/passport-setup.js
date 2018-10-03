@@ -49,6 +49,7 @@ passport.use(
                         new User({
                             username:profile.displayName,
                             googleId:profile.id,
+                            profileImgLink:profile._json.image.url
                            // profileImgLink:profile.image
 
                         }).save().then((newUser=>{
