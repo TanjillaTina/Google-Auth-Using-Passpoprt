@@ -3,10 +3,13 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var keys=require('./config/keys');
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var authRouter = require('./routes/authRoutes');
-var keys=require('./config/keys');
+var profileRouter=require('./routes/profileRoutes');
+
 const passport=require('passport');
 const cookieSession=require('cookie-session');
 /////torun the passport setup.js file 
@@ -52,9 +55,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+//routes
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/auth', authRouter);
+app.use('/profile',profileRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
